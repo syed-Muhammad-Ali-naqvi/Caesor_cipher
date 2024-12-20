@@ -1,0 +1,27 @@
+alphabets = ('a', 'b', 'c','d', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c','d', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z')
+
+while exit:
+  direction = input("Enter Encode to encrypt and Decode to dectrypt or write exit to quit: \n")
+  if direction == "exit":
+    print("Exiting the Program!")
+    print("Good Bye!")
+    break
+  
+  text = input("Enter your message: ").lower()
+  shift = int( input("Enter shift number: "))
+  
+  def caeser(start_text, shift_amount, text_direction):
+    end_text = ""
+    for letter in start_text:
+      position = alphabets.index(letter)
+      if text_direction == "encode":
+        new_position = position + shift_amount
+      elif text_direction == "decode":
+        new_position = position - shift_amount
+      new_letter = alphabets[new_position]
+      end_text += new_letter
+    print(f"Your {text_direction}d text is: {end_text}")
+  caeser(start_text=text, shift_amount=shift, text_direction=direction)
+  
+        
+    
